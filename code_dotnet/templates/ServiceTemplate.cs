@@ -1,14 +1,26 @@
-public class ProviderService {
-    public IOtherService _otherService;
+namespace CodingTemplates.DotNet.Templates;
 
-    public ProviderService(IOtherService otherService) {
-        _otherService = otherService;
+public interface IOtherService
+{
+    ProviderData FetchProviderData(string providerId);
+}
+
+public class ProviderService
+{
+    private readonly IOtherService _otherService;
+
+    public ProviderService(IOtherService otherService)
+    {
+        _otherService = otherService ?? throw new ArgumentNullException(nameof(otherService));
     }
 
-    public ProviderData GetProviderData(String providerId) {
-        // Implementation to retrieve provider data based on providerId
-        // This is a placeholder implementation and should be replaced with actual logic
-        var providerData = _otherService.FetchProviderData(providerId);
-        return providerData;
+    public ProviderData GetProviderData(string providerId)
+    {
+        if (string.IsNullOrWhiteSpace(providerId))
+        {
+            throw new ArgumentException("providerId is required.", nameof(providerId));
+        }
+
+        return _otherService.FetchProviderData(providerId);
     }
 }
