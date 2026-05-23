@@ -8,6 +8,7 @@ public interface IOtherService
 public interface IProviderService
 {
     ProviderData GetProviderData(string providerId);
+    ProviderViewData GetProviderViewData(string providerId);
 }
 
 public class ProviderService : IProviderService
@@ -27,5 +28,12 @@ public class ProviderService : IProviderService
         }
 
         return _otherService.FetchProviderData(providerId);
+    }
+
+    public ProviderViewData GetProviderViewData(string providerId)
+    {
+        var providerData = GetProviderData(providerId);
+
+        return ProviderViewDataMapper.MapProviderDataToViewData(providerData);
     }
 }
