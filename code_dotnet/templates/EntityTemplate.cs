@@ -1,5 +1,12 @@
 namespace CodingTemplates.DotNet.Templates;
 
+/*
+- Entity classes:
+  - Do: hold data and validation-relevant fields.
+  - Do: create unit class class and test fields with logic
+  - Don't: call external services.
+*/
+
 public class ProviderData
 {
     public string ProviderId { get; set; } = string.Empty;

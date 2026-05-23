@@ -1,5 +1,12 @@
 namespace CodingTemplates.DotNet.Templates;
 
+/*
+- Static classes:
+  - Do: provide pure/stateless helpers.
+  - Do: create an unit class class and test each method
+  - Don't: hold mutable shared state.
+*/
+
 public static class StaticHelpers
 {
     public static string GetProviderTypeDescription(string providerType)
