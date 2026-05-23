@@ -1,4 +1,5 @@
 using Xunit;
+using CodingTemplates.DotNet.Templates;
 
 namespace CodingTemplates.DotNet.UnitTestTemplates;
 
@@ -11,7 +12,7 @@ public class ProviderSqlRepositoryTests
     public void GetById_Should_Throw_When_ProviderId_Is_Null_Or_Empty(string? providerId)
     {
         // Arrange
-        var repository = new CodingTemplates.DotNet.Templates.ProviderSqlRepository();
+        var repository = new ProviderSqlRepository();
 
         // Act
         var action = () => repository.GetById(providerId!);
@@ -24,7 +25,7 @@ public class ProviderSqlRepositoryTests
     public void GetById_Should_Return_Null_For_Valid_Input_In_Template()
     {
         // Arrange
-        var repository = new CodingTemplates.DotNet.Templates.ProviderSqlRepository();
+        var repository = new ProviderSqlRepository();
 
         // Act
         var result = repository.GetById("provider-001");

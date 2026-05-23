@@ -1,4 +1,5 @@
 using Xunit;
+using CodingTemplates.DotNet.Templates;
 
 namespace CodingTemplates.DotNet.UnitTestTemplates;
 
@@ -8,7 +9,7 @@ public class ProviderDataTests
     public void ProviderData_Should_Initialize_With_Empty_Strings()
     {
         // Arrange
-        var providerData = new CodingTemplates.DotNet.Templates.ProviderData();
+        var providerData = new ProviderData();
 
         // Assert
         Assert.Equal(string.Empty, providerData.ProviderId);
