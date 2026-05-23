@@ -8,12 +8,12 @@
 
 - Entity classes:
   - Do: hold data and validation-relevant fields.
-  - Do: create an unit class class and test any fields with logic
+  - Do: create unit class class and test fields with logic
   - Don't: call external services.
 - Service classes:
   - Do: orchestrate business logic and dependencies.
-  - Do: create an interface for each class
-  - Do: create an unit class class, mock dependencies, and test each method
+  - Do: create interface for each class
+  - Do: create unit class class, mock dependencies, and test each method
   - Don't: contain shared utility logic that should be static helpers.
 - Static classes:
   - Do: provide pure/stateless helpers.
@@ -30,7 +30,8 @@
 ## General Unit Testing Rules:
 
 - Test for null/empty inputs.
-- Mock dependencies, test for dependencies returning expected and unexpected results
+- Mock dependencies
+- Test for dependencies returning both expected and unexpected results
 
 ## Templates for specific tasks
 
