@@ -1,12 +1,19 @@
-public class StaticHelpers {
-    public static String GetProviderTypeDescription(String providerType) {
-        switch (providerType) {
-            case "TypeA":
-                return "Description for Type A";
-            case "TypeB":
-                return "Description for Type B";
-            default:
-                return "Unknown provider type";
+namespace CodingTemplates.DotNet.Templates;
+
+public static class StaticHelpers
+{
+    public static string GetProviderTypeDescription(string providerType)
+    {
+        if (string.IsNullOrWhiteSpace(providerType))
+        {
+            return "Unknown provider type";
         }
+
+        return providerType switch
+        {
+            "TypeA" => "Description for Type A",
+            "TypeB" => "Description for Type B",
+            _ => "Unknown provider type"
+        };
     }
 }

@@ -1,7 +1,10 @@
-public class ProviderData {
-    public String ProviderId { get; set; }
-    public String ProviderName { get; set; }
-    public String ProviderType { get; set; }
-    public String ProviderUrl { get; set; }
-    public String ProviderDescription { get; set; }
+namespace CodingTemplates.DotNet.Templates;
+
+public class ProviderData
+{
+    public string ProviderId { get; set; } = string.Empty;
+    public string ProviderName { get; set; } = string.Empty;
+    public string ProviderType { get; set; } = string.Empty;
+    public string ProviderUrl { get; set; } = string.Empty;
+    public string ProviderDescription { get; set; } = string.Empty;
 }
