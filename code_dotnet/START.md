@@ -23,3 +23,11 @@
 
 - Data Access (SQL): `/code_dotnet/templates/SqlRepositoryTemplate.cs`
 - Data Access (MongoDB): `/code_dotnet/templates/MongoRepositoryTemplate.cs`
+
+## Unit test templates
+
+- Entity tests: `/code_dotnet/unittest_templates/EntityTemplateTests.cs`
+- Service tests: `/code_dotnet/unittest_templates/ServiceTemplateTests.cs`
+- Static logic tests: `/code_dotnet/unittest_templates/StaticTemplateTests.cs`
+- SQL repository tests: `/code_dotnet/unittest_templates/SqlRepositoryTemplateTests.cs`
+- MongoDB repository tests: `/code_dotnet/unittest_templates/MongoRepositoryTemplateTests.cs`
