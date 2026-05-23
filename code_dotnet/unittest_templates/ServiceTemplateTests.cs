@@ -55,4 +55,35 @@ public class ProviderServiceTests
         // Assert
         Assert.Same(expected, result);
     }
+
+    [Fact]
+    public void GetProviderViewData_Should_Use_Dependency_Data_And_Return_Mapped_Result()
+    {
+        // Arrange
+        var providerId = "provider-002";
+        var dependencyData = new ProviderData
+        {
+            ProviderId = providerId,
+            ProviderName = "  North Health  ",
+            ProviderType = "Preferred",
+            ProviderUrl = "http://north-health.example",
+            ProviderDescription = "Strong regional coverage"
+        };
+
+        var expected = ProviderViewDataMapper.MapProviderDataToViewData(dependencyData);
+
+        var otherServiceMock = new Mock<IOtherService>();
+        otherServiceMock
+            .Setup(x => x.FetchProviderData(providerId))
+            .Returns(dependencyData);
+
+        var service = new ProviderService(otherServiceMock.Object);
+
+        // Act
+        var result = service.GetProviderViewData(providerId);
+
+        // Assert
+        otherServiceMock.Verify(x => x.FetchProviderData(providerId), Times.Once);
+        Assert.Equivalent(expected, result);
+    }
 }

@@ -17,3 +17,27 @@ public static class StaticHelpers
         };
     }
 }
+
+
+public static class ProviderViewDataMapper
+{
+    public static ProviderViewData MapProviderDataToViewData(ProviderData providerData)
+    {
+        var normalizedName = providerData.ProviderName.Trim();
+        var normalizedType = providerData.ProviderType.Trim();
+
+        var isFeatured =
+            normalizedType.Equals("Preferred", StringComparison.OrdinalIgnoreCase)
+            || providerData.ProviderUrl.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+
+        return new ProviderViewData
+        {
+            ProviderId = providerData.ProviderId,
+            DisplayName = normalizedName.ToUpperInvariant(),
+            Category = normalizedType,
+            PublicUrl = providerData.ProviderUrl,
+            Summary = providerData.ProviderDescription,
+            IsFeatured = isFeatured
+        };
+    }
+}
