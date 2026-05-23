@@ -5,7 +5,12 @@ public interface IOtherService
     ProviderData FetchProviderData(string providerId);
 }
 
-public class ProviderService
+public interface IProviderService
+{
+    ProviderData GetProviderData(string providerId);
+}
+
+public class ProviderService : IProviderService
 {
     private readonly IOtherService _otherService;
 
